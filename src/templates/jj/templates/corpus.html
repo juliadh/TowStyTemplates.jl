@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="fr">
+    {% include "templates/head.html" %}
+    <body id="corps">
+        {% include "templates/header.html" %}
+        <main>
+            <section class="table">
+                <ul>
+                    {% for article in articles %}
+                        <li><a href="{{ article[:slugtitle] }}">{{ article[:title] |> safe }}</a></li>
+                    {% end %}
+                </ul>
+            </section>
+        </main>
+        {% include "templates/footer.html" %}
+        <script src="/static/js/ceen.js"></script>
+        <script src="/static/js/ceenOnLoad.js"></script>
+    </body>
+</html>
+

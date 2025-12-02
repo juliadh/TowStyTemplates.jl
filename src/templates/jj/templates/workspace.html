@@ -1,0 +1,23 @@
+<html>
+    <head>
+        <link href="/static/css/main.css" rel="stylesheet"/>
+    </head>
+    <body>
+        <header style="margin: auto; padding: 2em;">
+            <nav>
+                <a href="/">Retour à l'accueil</a>
+            </nav>
+        </header>
+        <main style="width: 800px; margin: auto; padding: 2em;">
+            <form action="/workspace/update">
+                <label for="styloapikey">Clé API Stylo</label><br>
+                <input style="width: 100%;" type="text" id="styloapikey" name="styloapikey"><br>
+                <label for="workspaceid">Identifiant du workspace</label><br>
+                <input style="width: 100%;" type="text" id="workspaceid" name="workspaceid">
+                <br/>
+                <input type="submit" value="Mettre à jour le Workspace"/>
+            </form>
+        </main>
+        
+    </body>
+</html>

@@ -1,0 +1,15 @@
+<html>
+    {% include "templates/head.html" %}
+    <body id="corps">
+        {% include "templates/header.html" %}
+        <main>
+            <section class="article">
+                <h1>{{ title |> safe }}</h1>
+                {{ content |> safe }}
+            </section>
+        </main>
+        {% include "templates/footer.html" %}
+        <script src="/static/js/ceen.js"></script>
+        <script src="/static/js/ceenOnLoad.js" type="text/javascript"></script>
+    </body>
+</html>
