@@ -1,6 +1,6 @@
 <header>
     <div class="hero">
-        <span class="Clogo">C</span><span class="Elogo1">E</span><span class="Elogo2">E</span><span class="Nlogo">N</span>
+        <!-- logo or hero goes here -->
     </div>
     <aside>
         <div id="customPane" class="menuPersCla">
@@ -62,14 +62,13 @@
     </aside>
     <nav>
         <ul>
-            <li><a href="/">CEEN</a></li>
+            <li><a href="/">Accueil</a></li>
             {% for corpus in corpuses %}
                {% let article = corpus %}
                     <li><a href="/{{ article[:normalizedname] }}">{{ article[:name] }}</a></li>
                 {% end %}
             {% end %}
             <li><a href="#liens">Liens</a></li>
-            <li class="right"><a href="https://gitlab.huma-num.fr/ceen/"><img src="/static/images/gitlab_icon.png" id="giticon"></a></li>
             <li class="right" onclick="openPane()"><a href="#personnaliser"><img src="/static/images/picol/settings.svg"/></a></li>
         </ul>
     </nav>
