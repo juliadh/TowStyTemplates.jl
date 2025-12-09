@@ -1,7 +1,7 @@
 let documents = [];
 let idx;
 
-fetch('/articles')
+fetch('/articles.json')
     .then(response => response.json())
     .then(data => {
         console.log("Données récupérées:", data);
