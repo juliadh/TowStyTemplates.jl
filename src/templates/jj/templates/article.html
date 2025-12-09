@@ -4,8 +4,8 @@
         {% include "templates/header.html" %}
         <main>
             <section class="article">
-                <h1>{{ title |> safe }}</h1>
-                {{ content |> safe }}
+                <h1>{{ content[:title] |> safe }}</h1>
+                {{ content[:article] |> safe }}
             </section>
         </main>
         {% include "templates/footer.html" %}

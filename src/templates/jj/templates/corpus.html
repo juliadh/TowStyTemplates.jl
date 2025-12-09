@@ -4,12 +4,18 @@
     <body id="corps">
         {% include "templates/header.html" %}
         <main>
+            <h2>{{ content[:corpusname] }}</h2>
+            <section class="description">
+                {{ content[:description] |> safe }}
+            </section>
             <section class="table">
+            {% let articles = content[:articles] %}
                 <ul>
                     {% for article in articles %}
-                        <li><a href="/{{ article[:slugtitle] }}">{{ article[:title] |> safe }}</a></li>
+                        <li><a href="/{{ article[:path] }}">{{ article[:title] |> safe }}</a></li>
                     {% end %}
                 </ul>
+            {% end %}
             </section>
         </main>
         {% include "templates/footer.html" %}
