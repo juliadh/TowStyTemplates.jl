@@ -16,9 +16,12 @@
   --color-accent: black;
   --color-faded: black;
   --color-link: black;
-  --color-border: black;
   --scale-ratio: 1.25;
   --color-hover:OrangeRed;
+  --width-border:0.1em;
+  --type-border:solid;
+ --color-border: black;
+
 
 }
 
@@ -53,14 +56,14 @@ nav ul {
   list-style-type: none;
   margin: 2em 0;
   padding: 0;
-  border-width: .1em 0;
+  border-width: var(--width-border) 0;
   border-color: var(--color-border);
-  border-style: solid;
+  border-style: var(--type-border);
 }
 
 nav ul li {
   padding: 14px 16px;
-  border-right: 0.1em var(--color-border) solid;
+  border-right: var(--width-border) var(--color-border) var(--type-border);
   /*height: 2em;*/
 }
 
@@ -74,7 +77,10 @@ nav li:nth-last-child(2) {
 
 nav ul li a {
   text-decoration: none;
-  color: var(--font-base);
+  /* changed */
+  /* color: black; */
+  /* useless? */
+  color: var(--color-link);
 }
 
 nav a:hover {
@@ -129,15 +135,18 @@ section.article {
 
 a{
 text-decoration: none;
-cursor:grab;
+cursor:pointer;
+color: var(--color-link);
+/* color:black; */
 }
 
 a:link {
-  color: black;
+  color: var(--color-link);
+  /* color:black; */
 }
 
 a:visited {
-  color: black;
+  color: var(--color-link);
 }
 
 a:hover {
@@ -258,6 +267,8 @@ a:active {
   }
 }
 
+
+
 h2, p {
   margin: 10px;
 }
@@ -311,15 +322,27 @@ h2, p {
   }
 }
 
-footer {
+.footer{
   margin-top: auto;
   width: 100%;
   text-align: center;
   align-items: center;
   display: flex;
   flex-direction:row;
+
+  overflow: hidden;
   justify-content: center;
 }
+
+.legal{
+font-size: small;
+color: #D3D3D3;
+
+}
+.footer a{
+  color: #D3D3D3;
+}
+
 
 .bandeau {
   filter: grayscale(100%);
@@ -329,3 +352,38 @@ footer {
 .bandeau:hover {
   filter: grayscale(0%);
 }
+.credit{
+  display: block;
+}
+ .mytowstybutton {
+  background-color: white;
+  border: none;
+  color: black;
+  padding: 5px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: block;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+  border: 2px solid #555555;
+}
+.mytowstybutton:hover {
+  border: 2px solid var(--color-hover);
+}
+
+/* Darkmode */
+/* @media (prefers-color-scheme: dark) {
+body {
+background-color: #1c1c1e;
+color: #fefefe;
+}
+a {
+color: #5fa9ee;
+}
+}
+.dark-mode {
+  background-color: black;
+  color: white;
+} */
