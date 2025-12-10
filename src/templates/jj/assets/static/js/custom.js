@@ -1,7 +1,3 @@
-
-
-
-
 // Carrousel
 
 // let slideIndex = 1;
