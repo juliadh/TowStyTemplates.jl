@@ -1,65 +1,77 @@
 <header>
     <div class="hero">{{ meta[:workspacename] }}</div>
-    <aside>
+       <aside>
         <div id="customPane" class="menuPersCla">
-            <p class="menu_title">choix de la police</p>
+          <p class="menu_title">Choix de la police</p>
             <a href="javascript:void(0)" class="closebtn" onclick="closePane()">&times;</a>
-            <select id="selectedFont" onchange="ChangeMyFont()">
-                <option id="choosenFont" value=""></option>
+              <select id="selectedFont" onchange="ChangeMyFont()">
+                <option id="ChoosenFont" value=""></option>
                 <option value="Victor Mono">Chasse fixe</option>
                 <option value="Urbanist">Sans empattement</option>
                 <option value="Crimson Pro">Avec empattement</option>
                 <option value="Atkinson Hyperlegible">Accessible</option>
                 <option value="OpenDyslexic">Accessible (OpenDyslexic)</option>
-            </select>
-            <p class="menu_title">Taille de la police</p>
-            <select id="selectedSize" onchange="ChangeMySize()">
-                <option id="ChoosenSize" value=""></option>
+              </select>
+          <p class="menu_title">Taille de la police</p>
+              <select id="selectedSize" onchange="ChangeMySize()">
+	            <option id="ChoosenSize" value=""></option>
                 <option value="10px">10px</option>
                 <option value="20px">20px</option>
                 <option value="30px">30px</option>
                 <option value="40px">40px</option>
                 <option value="50px">50px</option>
                 <option value="60px">60px</option>
-            </select>
-            <input type="text" class="input_style" id="Input_size">
-            <p class="menu_title">Couleur du texte</p>
-            <select id="selectedColorPrime" onchange="ChangeMyPrimaryColor()">
-                <option id="ChoosenColorPrime" value="defaultValue">Unset</option>
+              </select>
+            <input type="text" class="input_style" id="Input_size">    
+          <p class="menu_title">Couleur du texte</p>
+              <select id="selectedColorPrime" onchange="ChangeMyPrimaryColor()">
+	            <option id="ChoosenColorPrime" value=""></option>
                 <option value="black">Noir</option>
                 <option value="blue">Bleu</option>
                 <option value="red">Rouge</option>
                 <option value="green">Vert</option>
                 <option value="yellow">Jaune</option>
                 <option value="white">Blanc</option>
-            </select>
-            <input type="text" class="input_style" id="Input_primCol">
-            <p class="menu_title">Couleur du texte selectionné</p>
-            <select id="selectedColorSecond" onchange="ChangeMySecondaryColor()">
-                <option id="ChoosenColorSecond" value="defaultValue">Unset</option>
+              </select>
+            <input type="text" class="input_style" id="Input_primCol">	
+          <p class="menu_title">Couleur du texte sélectionné</p>
+              <select id="selectedColorSecond" onchange="ChangeMySecondaryColor()">
+                <option id="ChoosenColorSecond" value=""></option>
                 <option value="black">Noir</option>
                 <option value="blue">Bleu</option>
                 <option value="red">Rouge</option>
                 <option value="green">Vert</option>
                 <option value="yellow">Jaune</option>
                 <option value="white">Blanc</option>
-            </select>
-            <input type="text" class="input_style" id="Input_secCol">
-            <p class="menu_title">Couleur du fond</p>
-            <select id="selectedBackColor" onchange="ChangeBackgroundColor()">
-                <option id="ChoosenBackColor" value="defaultValue">Unset</option>
+              </select>
+            <input type="text" class="input_style" id="Input_secCol">	
+          <p class="menu_title">Couleur du fond</p>
+              <select id="selectedBackColor" onchange="ChangeBackgroundColor()">
+                <option id="ChoosenBackColor" value=""></option>
                 <option value="black">Noir</option>
                 <option value="blue">Bleu</option>
                 <option value="red">Rouge</option>
                 <option value="green">Vert</option>
                 <option value="yellow">Jaune</option>
                 <option value="white">Blanc</option>
-            </select>
+              </select>
             <input type="text" class="input_style" id="Input_backCol">
-            <button class="mytowstybutton"onclick="reset()">reset</button>
-            <button class="mytowstybutton" onclick="defaultTheme()">load default</button>
-            <button class="mytowstybutton" onclick="darkSwitch()" id="themebutton" value="light">Mode sombre</button>
-        </div>
+          <p class="menu_title">Couleur de la bordure</p>
+              <select id="selectedBorderColor" onchange="ChangeBorderColor()">
+                <option id="ChoosenborderColor" value=""></option>
+                <option value="black">Noir</option>
+                <option value="blue">Bleu</option>
+                <option value="red">Rouge</option>
+                <option value="green">Vert</option>
+                <option value="yellow">Jaune</option>
+                <option value="white">Blanc</option>
+              </select>
+            <input type="text" class="input_style" id="Input_borderCol">
+        <button class="mytowstybutton"onclick="reset()">reset</button>
+        <button class="mytowstybutton" onclick="defaultTheme()">load default</button>
+        <button class="mytowstybutton" onclick="darkSwitch()" id="themebutton" value="light">Mode sombre</button>
+    </div>
+    </div>
     </aside>
     <nav>
         <ul>
