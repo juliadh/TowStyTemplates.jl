@@ -15,7 +15,7 @@ fetch('/articles.json')
             this.use(lunr.fr);
             this.ref('_id');
             this.field('title');
-            this.field('md');
+            this.field('plain');
 
             documents.forEach(function (doc) {
                 this.add(doc);
@@ -53,7 +53,7 @@ fetch('/articles.json')
                 resultsDiv.innerHTML = '';
                 return;
             }
-            const results = idx.search(query);
+            const results = idx.search(query+"~1");
             renderResults(results);
         }
 
