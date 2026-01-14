@@ -20,9 +20,7 @@
   --color-hover:OrangeRed;
   --width-border:0.1em;
   --type-border:solid;
- --color-border: black;
-
-
+  --color-border: black;
 }
 
 body {
@@ -153,14 +151,24 @@ h2 {
   align-items: center;
   display: flex;
   flex-direction:row;
-
   overflow: hidden;
   justify-content: center;
 }
 
-.legal{
+.legal {
   font-size: small;
-  color: #D3D3D3;
+}
+
+.legal > ul  {
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  gap: 1em;
+}
+
+.legal > ul > li:not(:first-child)::before {
+  content: "| ";
+  margin-right: 1em;
 }
 
 .footer a{

@@ -1,7 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Lora:ital,wght@0,400..700;1,400..700&display=swap');
 @import url('https://fonts.cdnfonts.com/css/opendyslexic');
 
-
 * {
   box-sizing: border-box;
 }
@@ -22,8 +21,6 @@
   --width-border:0.1em;
   --type-border:solid;
   --color-border: black;
-
-
 }
 
 body {
@@ -44,11 +41,11 @@ main{
   flex: 1;
 }
 
-h1, 
-h2, 
-h3, 
-h4, 
-h5, 
+h1,
+h2,
+h3,
+h4,
+h5,
 h6 {
   font-family: var(--font-title);
 }
@@ -131,15 +128,13 @@ section.article {
 }
 
 a{
-text-decoration: none;
-cursor:pointer;
-color: var(--color-link);
-/* color:black; */
+  text-decoration: none;
+  cursor:pointer;
+  color: var(--color-link);
 }
 
 a:link {
   color: var(--color-link);
-  /* color:black; */
 }
 
 a:visited {
@@ -147,39 +142,16 @@ a:visited {
 }
 
 a:hover {
-color:var(--color-hover);
-  /*font-weight: bold;*/
+  color:var(--color-hover);
 }
 
 a:active {
   color:OrangeRed;
-  /*font-weight: bold;*/
 }
-
-
-
-@keyframes fade {
-  from {
-    opacity: .4
-  }
-  to {
-    opacity: 1
-  }
-}
-
-@media only screen and (max-width: 300px) {
-  .text {
-    font-size: 11px
-  }
-}
-
-
 
 h2 {
   margin: 1.5em 0 .5em 0;
 }
-
-
 
 .footer{
   margin-top: auto;
@@ -188,61 +160,26 @@ h2 {
   align-items: center;
   display: flex;
   flex-direction:row;
-
   overflow: hidden;
   justify-content: center;
 }
 
-.legal{
-font-size: small;
-color: #D3D3D3;
-
+.legal {
+  font-size: small;
 }
+
+.legal > ul  {
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  gap: 1em;
+}
+
+.legal > ul > li:not(:first-child)::before {
+  content: "| ";
+  margin-right: 1em;
+}
+
 .footer a{
   color: #D3D3D3;
 }
-
-
-.bandeau {
-  filter: grayscale(100%);
-  transition: filter .3s ease-out, .5s ease-in;
-}
-
-.bandeau:hover {
-  filter: grayscale(0%);
-}
-.credit{
-  display: block;
-}
- .mytowstybutton {
-  background-color: white;
-  border: none;
-  color: black;
-  padding: 5px 10px;
-  text-align: center;
-  text-decoration: none;
-  display: block;
-  font-size: 16px;
-  margin: 4px 2px;
-  transition-duration: 0.4s;
-  cursor: pointer;
-  border: 2px solid #555555;
-}
-.mytowstybutton:hover {
-  border: 2px solid var(--color-hover);
-}
-
-/* Darkmode */
-/* @media (prefers-color-scheme: dark) {
-body {
-background-color: #1c1c1e;
-color: #fefefe;
-}
-a {
-color: #5fa9ee;
-}
-}
-.dark-mode {
-  background-color: black;
-  color: white;
-} */
