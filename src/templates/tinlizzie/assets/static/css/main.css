@@ -1,0 +1,248 @@
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Lora:ital,wght@0,400..700;1,400..700&display=swap');
+@import url('https://fonts.cdnfonts.com/css/opendyslexic');
+
+
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  --font-base: Lora, serif;
+  --font-title: Archivo, sans;
+  --font-size-base: 23px;
+  --line-height-base: 1.6;
+  --line-height-tight: 1.2;
+  --color-background: #FFFFFF;
+  --color-text: black ;
+  --color-accent: black;
+  --color-faded: black;
+  --color-link: black;
+  --scale-ratio: 1.25;
+  --color-hover: #bb44f0;
+  --width-border:0.1em;
+  --type-border:solid;
+  --color-border: black;
+
+
+}
+
+body {
+  font-family: var(--font-base);
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-base);
+  color: var(--color-text);
+  text-align: justify;
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+main{
+  flex: 1;
+}
+
+h1, 
+h2, 
+h3, 
+h4, 
+h5, 
+h6 {
+  font-family: var(--font-title);
+}
+
+header > div.hero {
+  text-align: center;
+}
+
+div.hero > img {
+  width: 45%;
+}
+
+nav {
+  position: sticky;
+  top: 0;
+  background-color: var(--color-background);
+}
+
+nav ul {
+  font-size: 1.5em;
+  display: flex;
+  flex-direction: row;
+  list-style-type: none;
+  margin: 0;
+  padding: 0 1em;
+  gap: 2em;
+  border-bottom: 1px solid gainsboro;
+}
+
+nav ul li {
+  padding: 14px 16px;
+}
+
+nav li:nth-last-child(1) {
+  margin-left: auto;
+}
+
+.right{
+  border-right: none;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: var(--color-link);
+}
+
+#giticon,
+nav img {
+  display: inline-block;
+  height: 1em;
+  width: auto;
+  transform: translate(0, 0.1em);
+}
+
+/*main*/
+main > section {
+  margin: auto;
+}
+
+main > section.table {
+  width: 40em;
+}
+
+section.table > ul {
+  display: grid;
+  gap: 0em;
+  list-style: none;
+  padding-left: 0;
+}
+
+section.table > ul > li {
+  padding: 14px 16px;
+  display: flex;
+  align-items: center;
+}
+
+section.article {
+  min-width: 40ch;
+  max-width: 70ch;
+}
+
+a{
+text-decoration: none;
+cursor:pointer;
+color: var(--color-link);
+/* color:black; */
+}
+
+a:link {
+  color: var(--color-link);
+  /* color:black; */
+}
+
+a:visited {
+  color: var(--color-link);
+}
+
+a:hover {
+color:var(--color-hover);
+  /*font-weight: bold;*/
+}
+
+a:active {
+  color:OrangeRed;
+  /*font-weight: bold;*/
+}
+
+
+
+@keyframes fade {
+  from {
+    opacity: .4
+  }
+  to {
+    opacity: 1
+  }
+}
+
+@media only screen and (max-width: 300px) {
+  .text {
+    font-size: 11px
+  }
+}
+
+
+
+h2 {
+  margin: 1.5em 0 .5em 0;
+}
+
+
+
+.footer{
+  margin-top: auto;
+  width: 100%;
+  text-align: center;
+  align-items: center;
+  display: flex;
+  flex-direction:row;
+
+  overflow: hidden;
+  justify-content: center;
+}
+
+.legal{
+font-size: small;
+color: #D3D3D3;
+
+}
+.footer a{
+  color: #D3D3D3;
+}
+
+
+.bandeau {
+  filter: grayscale(100%);
+  transition: filter .3s ease-out, .5s ease-in;
+}
+
+.bandeau:hover {
+  filter: grayscale(0%);
+}
+.credit{
+  display: block;
+}
+ .mytowstybutton {
+  background-color: white;
+  border: none;
+  color: black;
+  padding: 5px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: block;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+  border: 2px solid #555555;
+}
+.mytowstybutton:hover {
+  border: 2px solid var(--color-hover);
+}
+
+/* Darkmode */
+/* @media (prefers-color-scheme: dark) {
+body {
+background-color: #1c1c1e;
+color: #fefefe;
+}
+a {
+color: #5fa9ee;
+}
+}
+.dark-mode {
+  background-color: black;
+  color: white;
+} */
