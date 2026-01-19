@@ -51,6 +51,11 @@ function init(dir::String="project"; template::String="jj", changedir::Bool=true
   # move to the directory if relevant
   changedir && cd(dir)
 
+  # Update TowSty paths if the module is loaded
+  if changedir && isdefined(Main, :TowSty)
+    Main.TowSty.definepaths!()
+  end
+
   # display information as adequate
   verbose && begin
     print("✓ project folder generated at \"$(dir)\"")
