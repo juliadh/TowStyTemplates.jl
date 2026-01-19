@@ -52,8 +52,8 @@ function init(dir::String="project"; template::String="jj", changedir::Bool=true
   changedir && cd(dir)
 
   # Update TowSty paths if the module is loaded
-  if changedir && isdefined(Main, :TowSty)
-    Main.TowSty.definepaths!()
+  if changedir && isdefined(Main, :TowSty) && isdefined(Main.TowSty, :definepaths!)
+    Base.invokelatest(Main.TowSty.definepaths!)
   end
 
   # display information as adequate
