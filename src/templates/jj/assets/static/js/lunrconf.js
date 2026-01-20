@@ -1,7 +1,11 @@
 let documents = [];
 let idx;
 
-fetch('/articles.json')
+// Get baseurl from template (injected as global variable)
+const baseurl = window.BASEURL || "";
+const urlPrefix = baseurl ? "/" + baseurl : "";
+
+fetch(urlPrefix + '/articles.json')
     .then(response => response.json())
     .then(data => {
         console.log("Données récupérées:", data);
@@ -40,7 +44,7 @@ fetch('/articles.json')
                     return;
                 }
                 const div = document.createElement('div');
-                let path = "/" + doc.path;
+                let path = urlPrefix + "/" + doc.path;
                 div.classList.add('result');
                 div.innerHTML = `<strong><a href="${path}">${doc.title || 'Sans titre'}</a></strong>`;
                 resultsDiv.appendChild(div);
