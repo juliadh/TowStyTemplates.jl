@@ -2,3 +2,9 @@ name = "TowStyTemplates"
 uuid = "26c3e8b2-b2ea-4c13-8a2d-a4d529bbbc89"
 version = "0.1.0"
 authors = ["Josselin Morvan <morvan.josselin@gmail.com>"]
+
+[deps]
+Random = "9a3f8284-a2c9-5f02-9a11-845980a1fd5c"
+
+[compat]
+Random = "1.11.0"

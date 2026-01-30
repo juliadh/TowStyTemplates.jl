@@ -42,7 +42,7 @@ function init(dir::String="project"; template::String="jj", changedir::Bool=true
 
   hash = randstring(['0':'9'; 'a':'f'], 12)
 
-  open(joinpath(dir, "credential.txt", "w")) do f
+  open(joinpath(dir, "credential.txt"), "w") do f
     write(f, hash)
   end
 

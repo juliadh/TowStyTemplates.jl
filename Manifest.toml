@@ -1,0 +1,19 @@
+# This file is machine-generated - editing it directly is not advised
+
+julia_version = "1.12.0"
+manifest_format = "2.0"
+project_hash = "a67720f43a3f18486ef9ef9c442d5c194ca56317"
+
+[[deps.Random]]
+deps = ["SHA"]
+uuid = "9a3f8284-a2c9-5f02-9a11-845980a1fd5c"
+version = "1.11.0"
+
+[[deps.SHA]]
+uuid = "ea8e919c-243c-51af-8825-aaa63cd721ce"
+version = "0.7.0"
+
+[[deps.TowStyTemplates]]
+path = "."
+uuid = "26c3e8b2-b2ea-4c13-8a2d-a4d529bbbc89"
+version = "0.1.0"
