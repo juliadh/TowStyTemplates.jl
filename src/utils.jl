@@ -40,9 +40,9 @@ function init(dir::String="project"; template::String="jj", changedir::Bool=true
   mkpath(joinpath(dir, "content"))
   mkpath(joinpath(dir, "temp"))
 
-  hash = randstring(['0':'9'; 'a':'f'], 12)
-
-  open(joinpath(dir, "credential.txt"), "w") do f
+  #generate a hash for workspace update
+  hash = randstring(['0':'9'; 'a':'f'], 16)
+  open(joinpath(dir, ".hash"), "w") do f
     write(f, hash)
   end
 
