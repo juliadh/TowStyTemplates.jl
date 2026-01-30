@@ -1,5 +1,5 @@
 """
-init(dir; template="jj", changedir=true)
+newproject(dir; template="jj", changedir=true)
 
 Generate a new folder (an error is thrown if it already exists) that contains
 the skeleton of the blog that can be processed by TowSty. The user can
@@ -14,10 +14,10 @@ created folder or not.
 ### Example
 
 ```julia
-init("MyNewWebsite", template="jj")
+newproject("MyNewWebsite", template="jj")
 ```
 """
-function init(dir::String="project"; template::String="jj", changedir::Bool=true,  verbose::Bool=true)
+function newproject(dir::String="project"; template::String="jj", changedir::Bool=true,  verbose::Bool=true)
 
   template = lowercase(template)
   template ∈ TEMPLATES_LIST || throw( ArgumentError("Template $template doesn't exist.") )
