@@ -1,5 +1,7 @@
 module TowStyTemplates
 
+using Random
+
 export init
 
 const TOWSTY_PATH = dirname(pathof(TowStyTemplates))

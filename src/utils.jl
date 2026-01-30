@@ -40,6 +40,12 @@ function init(dir::String="project"; template::String="jj", changedir::Bool=true
   mkpath(joinpath(dir, "content"))
   mkpath(joinpath(dir, "temp"))
 
+  hash = randstring(['0':'9'; 'a':'f'], 12)
+
+  open(joinpath(dir, "credential.txt", "w")) do f
+    write(f, hash)
+  end
+
   # For 'added' packages, Pkg.jl makes some files read-only, so here we
   # restore to 644 to guarantee that they are r/w
   for (root, _, files) ∈ walkdir(dir)
@@ -61,6 +67,7 @@ function init(dir::String="project"; template::String="jj", changedir::Bool=true
     print("✓ project folder generated at \"$(dir)\"")
     println(ifelse(changedir, " (now the current directory)." , "."))
     println("→ Use getworkspace() and toaster() from TowSty to see the website in your browser.")
+    println("→ Your hash is: $(hash)")
   end
 
   return nothing
