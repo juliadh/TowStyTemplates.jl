@@ -60,7 +60,7 @@ function newproject(dir::String="project"; template::String="jj", changedir::Boo
   end==#
 
   if changedir && isdefined(Main, :TowSty)
-    definepath!()
+    definepaths!()
   end
 
   # display information as adequate
