@@ -2,7 +2,7 @@ module TowStyTemplates
 
 using Random
 
-export newproject, templates
+export newproject, templates, generatehash
 
 const TOWSTY_PATH = dirname(pathof(TowStyTemplates))
 const TEMPLATES_PATH = joinpath(TOWSTY_PATH, "templates")

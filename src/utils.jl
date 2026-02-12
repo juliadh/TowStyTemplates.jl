@@ -41,10 +41,7 @@ function newproject(dir::String="project"; template::String="jj", changedir::Boo
   mkpath(joinpath(dir, "temp"))
 
   #generate a hash for workspace update
-  hash = randstring(['0':'9'; 'a':'f'], 16)
-  open(joinpath(dir, ".hash"), "w") do f
-    write(f, hash)
-  end
+  hash = generatehash()
 
   # For 'added' packages, Pkg.jl makes some files read-only, so here we
   # restore to 644 to guarantee that they are r/w
@@ -101,4 +98,20 @@ function templates()
   for template in TEMPLATES_LIST
     println(template)
   end
+end
+
+"""
+    generatehash()
+
+This function generates a hash and writes it on 
+a file name ".hash" for workspace update.
+"""
+function generatehash()
+  hash = randstring(['0':'9'; 'a':'f'], 16)
+
+  open(joinpath(dir, ".hash"), "w") do f
+    write(f, hash)
+  end
+
+  return hash
 end
