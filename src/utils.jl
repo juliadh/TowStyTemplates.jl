@@ -90,3 +90,15 @@ function mergefolders(src, dst)
         end
     end
 end
+
+"""
+    templates()
+
+This function lists available templates.
+"""
+
+function templates()
+  for template in TEMPLATES_LIST
+    println(template)
+  end
+end

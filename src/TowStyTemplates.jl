@@ -2,7 +2,7 @@ module TowStyTemplates
 
 using Random
 
-export newproject
+export newproject, templates
 
 const TOWSTY_PATH = dirname(pathof(TowStyTemplates))
 const TEMPLATES_PATH = joinpath(TOWSTY_PATH, "templates")
@@ -10,7 +10,6 @@ const TEMPLATES_PATH = joinpath(TOWSTY_PATH, "templates")
 const TEMPLATES_LIST = (
   "jj",
   "tinlizzie",
-  "empty"
 )
 
 include("utils.jl")

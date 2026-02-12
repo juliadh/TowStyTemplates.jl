@@ -3,12 +3,20 @@
 </header>
 <nav>
     <ul>
-        <li><a href="/"><img src="/static/images/picol/home.svg"/></a></li>
+        {% let homeicon = joinpath( meta[:baseurl], "static/images/picol/home.svg" ) %}
+            <li><a href="/{{ meta[:baseurl] }}"><img src="/{{ homeicon }}"/></a></li>
+        {% end %}
+
         {% let nav = meta[:nav] %}
-        {% for entry in nav %}
-<li><a href="/{{ entry[:path] }}">{{ entry[:name] }}</a></li>
+            {% for entry in nav %}
+                {% let fullpath = joinpath(meta[:baseurl], entry[:path]) %}
+                    <li><a href="/{{ fullpath }}">{{ entry[:name] }}</a></li>
+                {% end %}
+            {% end %}
         {% end %}
+
+        {% let searchicon = joinpath( meta[:baseurl], "static/images/picol/search.svg" ); searchpath = joinpath( meta[:baseurl], "recherche" ) %}
+            <li><a href="/{{ searchpath }}"><img src="/{{ searchicon }}"/></a></li>
         {% end %}
-<li class="right"><a href="/recherche"><img src="/static/images/picol/search.svg"/></a></li>
     </ul>
 </nav>

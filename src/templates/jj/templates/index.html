@@ -6,7 +6,7 @@
         <main>
             <article class="news">
                 <h2>Actualités</h2>
-                {% let news = content[:news][1:2] %}
+                {% let news = content[:news] %}
                     {% for n in news %}
                         <section>
                             <a href="{{ n[:path] }}">{{ n[:title] |> safe }}</a>
