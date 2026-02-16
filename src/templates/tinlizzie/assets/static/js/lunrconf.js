@@ -15,7 +15,7 @@ fetch('/articles.json')
             this.use(lunr.fr);
             this.ref('_id');
             this.field('title');
-            this.field('plain');
+            this.field('md');
 
             documents.forEach(function (doc) {
                 this.add(doc);
