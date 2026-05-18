@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    {% let csspath = joinpath( meta[:baseurl], "static/css/main.css" ) %}
+        <link rel="stylesheet" href="/{{ csspath }}">
+    {% end %}
+    <meta charset="utf-8" />
+    <title>Erreur {{ status }}</title>
+  </head>
+  <body>
+    <div id="httperror">
+      <h1>{{ status }}</h1>
+      <p class="message">{{ message }}</p>
+      <p><a href="{{ homeurl }}">← Retour à l’accueil</a></p>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <style>
+
+
+        
+
+        
+        </style>
+    </head>
+    <body>
+        <main id="log">
+            <header>
+                <h1>Mise à jour des données</h1>
+            </header>
+            <p>{{ message }}</p>
+            <details>
+                <summary>Log</summary>
+                <pre>
+                    {% for line in log %}
+                        {{ line }}
+                    {% end %}
+                </pre>
+            </details>
+            <p><a href="{{ homeurl }}">← Retour à l’accueil</a></p>
+        </main>
+    </body>
+</html>
