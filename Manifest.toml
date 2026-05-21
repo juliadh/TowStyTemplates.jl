@@ -14,6 +14,7 @@ uuid = "ea8e919c-243c-51af-8825-aaa63cd721ce"
 version = "0.7.0"
 
 [[deps.TowStyTemplates]]
+deps = ["Random"]
 path = "."
 uuid = "26c3e8b2-b2ea-4c13-8a2d-a4d529bbbc89"
 version = "0.1.0"
