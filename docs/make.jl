@@ -13,5 +13,5 @@ makedocs(;
 
 
 deploydocs(
-    repo = "https://github.com/juliadh/TowStyTemplates.jl.git",
+    repo = "github.com/juliadh/TowStyTemplates.jl.git",
 )
