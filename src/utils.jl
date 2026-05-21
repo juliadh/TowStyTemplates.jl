@@ -93,7 +93,6 @@ end
 
 This function lists available templates.
 """
-
 function templates()
   for template in TEMPLATES_LIST
     println(template)
@@ -103,8 +102,8 @@ end
 """
     generatehash(dir::String)
 
-This function generates a hash and writes it on 
-a file name ".hash" for workspace update.
+This function generates a hash and writes it on
+a file name `.hash` for workspace update.
 """
 function generatehash(dir::String)
   hash = randstring(['0':'9'; 'a':'f'], 16)
