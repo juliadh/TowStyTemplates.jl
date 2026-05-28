@@ -54,9 +54,15 @@ function newproject(dir::String="project"; template::String="jj", changedir::Boo
   # move to the directory if relevant
   changedir && cd(dir)
 
-  #Update TowSty paths if the module is loaded
-  if changedir && isdefined(Main, :TowSty) && isdefined(Main.TowSty, :definepaths)
-    Base.invokelatest(Main.TowSty.definepaths)
+  # Update TowSty paths if the module is loaded
+  if changedir
+    for (pkgid, mod) in Base.loaded_modules
+      if pkgid.name == "TowSty" && isdefined(mod, :definepaths)
+        Base.invokelatest(mod.definepaths)
+        @info "Project is now at $(PROJECT_PATH)"
+        break
+      end
+    end
   end
 
   # display information as adequate
