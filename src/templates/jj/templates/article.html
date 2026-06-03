@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     {% include "templates/head.html" %}
-    <body id="corps">
+    <body id="{{ content[:_id] }}">
         {% include "templates/header.html" %}
         <main>
             <section class="article">
