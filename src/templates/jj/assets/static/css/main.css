@@ -1,7 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&family=Crimson+Pro:ital,wght@0,200..900;1,200..900&family=Urbanist:ital,wght@0,100..900;1,100..900&family=Victor+Mono:ital,wght@0,100..700;1,100..700&display=swap');
 @import url('https://fonts.cdnfonts.com/css/opendyslexic');
 
-
 * {
   box-sizing: border-box;
 }
@@ -9,7 +8,7 @@
 :root {
   --font-base: 'Victor mono', monospace;
   --font-size-base: 20px;
-  --line-height-base: 1.5;
+  --line-height-base: 1.6;
   --line-height-tight: 1.2;
   --color-background: #FFFFFF;
   --color-text: black ;
@@ -18,9 +17,11 @@
   --color-link: black;
   --scale-ratio: 1.25;
   --color-hover:OrangeRed;
-  --width-border:0.1em;
-  --type-border:solid;
+  --width-border: 0.1em;
+  --type-border: solid;
   --color-border: black;
+  --color-icon: invert(0%) sepia(0%) saturate(100%) hue-rotate(0deg) brightness(100%) contrast(100%);
+  --background-image: none;
 }
 
 body {
@@ -28,6 +29,10 @@ body {
   font-size: var(--font-size-base);
   line-height: var(--line-height-base);
   color: var(--color-text);
+  background: var(--color-background);
+  background-image: var(--background-image);
+  background-size: cover;
+  background-attachment: fixed;
   margin: 0;
   padding: 0;
   -webkit-font-smoothing: antialiased;
@@ -38,9 +43,23 @@ body {
 
 main{
   flex: 1;
+  min-width: 40ch;
+  max-width: 70ch;
+  margin: auto;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  text-align: left;
 }
 
 header {
+  position: relative;
+
   div.hero {
     font-weight: bold;
     font-size: 5em;
@@ -63,14 +82,20 @@ header {
   nav ul li {
     padding: 14px 16px;
     border-right: var(--width-border) var(--color-border) var(--type-border);
+    border-color: var(--color-border);
   }
 
-  nav li:nth-last-child(1) {
+  nav li:nth-last-child(2) {
     margin-left: auto;
+  }
+
+  nav li img.custom{
+    cursor: pointer;
   }
 
   .right{
     border-right: none;
+    border-color: var(--color-border);
   }
 
   #giticon,
@@ -79,12 +104,87 @@ header {
     height: 1em;
     width: auto;
     transform: translate(0, 0.1em);
+    filter: var(--color-icon);
   }
 
   nav a,
   nav a:visited,
   nav a:link {
     text-decoration: none;
+    color: var(--color-link);
+  }
+
+  .burgerMenu {
+    display: none;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 2em;
+    height: 2em;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    position: absolute;
+    top: 1em;
+    right: 1em;
+    z-index: 15;
+  }
+
+  .burgerMenu span {
+    width: 2em;
+    height: 0.2em;
+    background-color: var(--color-text);
+    transition: all 0.3s ease;
+  }
+
+  .burgerMenu.active span:nth-child(1) {
+    transform: rotate(45deg) translate(0.5em, 0.5em);
+  }
+
+  .burgerMenu.active span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .burgerMenu.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(0.5em, -0.5em);
+  }
+
+  @media (max-width: 1280px) {
+    .burgerMenu {
+      display: flex;
+    }
+
+    nav ul {
+      flex-direction: column;
+      position: fixed;
+      top: 0;
+      right: -100%;
+      width: 70%;
+      max-width: 300px;
+      height: 100vh;
+      background-color: var(--color-background);
+      transition: right 0.3s ease;
+      z-index: 10;
+      margin: 0;
+      padding-top: 4em;
+      border: var(--width-border) var(--color-border) var(--type-border);
+      border-color: var(--color-border);
+    }
+
+    nav.active ul {
+      right: 0;
+    }
+
+    nav ul li {
+      border-right: none;
+      border-bottom: var(--width-border) var(--color-border) var(--type-border);
+      border-color: var(--color-border);
+      width: 100%;
+    }
+
+    nav li:nth-last-child(1) {
+      margin-left: 0;
+    }
   }
 }
 
@@ -97,6 +197,7 @@ main {
 
   section.table {
     width: 40em;
+    text-align: left;
 
     > ul {
       display: grid;
@@ -107,11 +208,13 @@ main {
       padding-left: 0;
       border-left: .2em var(--color-border) solid;
       border-top: .2em var(--color-border) solid;
+      border-color: var(--color-border);
     }
 
     > ul > li {
       border-right: .2em var(--color-border) solid;
       border-bottom: .2em var(--color-border) solid;
+      border-color: var(--color-border);
       padding: 14px 16px;
       display: flex;
       align-items: center;
@@ -157,25 +260,50 @@ a:visited {
 
 a:hover,
 a:active {
-  color:OrangeRed;
+  color:var(--color-hover);
 }
 
 h2 {
   margin: 1.5em 0 .5em 0;
 }
 
-.footer{
-  margin-top: auto;
-  width: 100%;
-  text-align: center;
-  align-items: center;
-  display: flex;
-  flex-direction:row;
-  overflow: hidden;
-  justify-content: center;
+.smallcaps {
+  font-variant: small-caps;
+}
 
-  a{
-    color: #D3D3D3;
+.alignCenter {
+  text-align: center;
+}
+
+.alignRight {
+  text-align: right;
+}
+
+.csl-entry {
+  margin-bottom: 1em;
+  text-indent: -1em;
+}
+
+sup,
+.superscript {
+  font-size: smaller;
+  vertical-align: super;
+  line-height: 0;
+}
+
+  .footer{
+    margin-top: auto;
+    width: 100%;
+    text-align: center;
+    align-items: center;
+    display: flex;
+    flex-direction:row;
+    overflow: hidden;
+    justify-content: center;
+  }
+
+  .footer a{
+    color: var(--color-link);
   }
 
   .legal {
@@ -193,42 +321,22 @@ h2 {
     content: "| ";
     margin-right: 1em;
   }
-}
 
-#httperror {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  min-height: 100vh;
 
-  h1 {
-    font-size: 3em;
-    margin-bottom: 0.5em;
-    color: IndianRed;
-  }
-
-  .message {
-    font-size: 1.2em;
+@media (max-width: 1920px) {
+  :root {
+    --font-size-base: 20px;
   }
 }
 
-#log {
-  width: 800px;
-  margin: auto;
-  padding: 2em;
-
-  header {
-    margin: auto;
-    padding: 2em;
+@media (max-width: 1512px) {
+  :root {
+    --font-size-base: 18px;
   }
+}
 
-  pre {
-    background:#f4f4f4;
-    padding:1em;
-    border-radius:4px;
-    font-size:0.85em;
-    white-space: pre-wrap;
+@media (max-width: 1280px) {
+  :root {
+    --font-size-base: 16px;
   }
 }

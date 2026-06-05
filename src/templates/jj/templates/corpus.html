@@ -1,24 +1,30 @@
 <!doctype html>
 <html lang="fr">
     {% include "templates/head.html" %}
-    <body id="corps">
+    <body>
         {% include "templates/header.html" %}
         <main>
             <h2>{{ content[:name] }}</h2>
             <section class="description">
                 {{ content[:description] |> safe }}
             </section>
-            <section class="table">
-            {% let articles = content[:articles] %}
-                <ul>
-                    {% for article in articles %}
-                        {% let fullpath = joinpath(meta[:baseurl], article[:path]) %}
-                            <li><a href="/{{ fullpath }}">{{ article[:title] |> safe }}</a></li>
-                        {% end %}
+            {%if length(content[:articles]) > 0%}
+                <section class="table">
+                    <input
+                        type="search"
+                        placeholder="Filtrer les articles"
+                        oninput="listfilter(event)" />
+                    {% let articles = content[:articles] %}
+                        <ul>
+                            {% for article in articles %}
+                                {% let fullpath = joinpath(meta[:baseurl], article[:path]) %}
+                                    <li><a href="/{{ fullpath }}">{{ article[:title] |> safe }}</a></li>
+                                {% end %}
+                            {% end %}
+                        </ul>
                     {% end %}
-                </ul>
+                </section>
             {% end %}
-            </section>
         </main>
         {% include "templates/footer.html" %}
         {% include "templates/scripts.html" %}

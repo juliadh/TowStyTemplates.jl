@@ -1,6 +1,112 @@
 <header>
     <div class="hero">{{ meta[:workspacename] }}</div>
-    <nav>
+    <button class="burgerMenu" onclick="toggleMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+    <aside>
+        <div id="bios" class="menuPersCla">
+            <h1 class="biostitle">CMOS Setup Utility - CC 0 2024-2027 CEEN Software</h1>
+            <div id="bioscontainer">
+                <ul id="themeList"></ul>
+            </div>
+            <div id="bioparam">
+                <a href="javascript:void(0)" id="biosButtonParam" tabindex="1" onclick="toggleBios()">Exit</a>
+            </div>
+        </div>
+        <div id="customPane" class="menuPersCla">
+            <p class="menu_title">Choix de la police</p>
+            <a href="javascript:void(0)" class="closebtn" onclick="togglePane()">&times;</a>
+            <select id="fontFamilySelect" onchange="selectFontFamily()">
+                <option id="fontFamilyOption" value=""></option>
+                <option value="Victor Mono">Chasse fixe</option>
+                <option value="Urbanist">Sans empattement</option>
+                <option value="Crimson Pro">Avec empattement</option>
+                <option value="Atkinson Hyperlegible">Accessible</option>
+                <option value="OpenDyslexic">Accessible (OpenDyslexic)</option>
+            </select>
+            <input type="text" class="input_style" id="fontFamilyInput" oninput="inputFontFamily()">
+            <p class="menu_title">Taille de la police</p>
+            <select id="fontSizeSelect" onchange="selectFontSize()">
+                <option id="fontSizeOption" value=""></option>
+                <option value="10px">10px</option>
+                <option value="20px">20px</option>
+                <option value="30px">30px</option>
+                <option value="40px">40px</option>
+                <option value="50px">50px</option>
+                <option value="60px">60px</option>
+            </select>
+            <input type="text" class="input_style" id="fontSizeInput" oninput="inputFontSize()">
+            <p class="menu_title">Couleur du texte</p>
+            <select id="textColorSelect" onchange="selectTextColor()">
+                <option id="textColorOption" value=""></option>
+                <option value="black">Noir</option>
+                <option value="blue">Bleu</option>
+                <option value="red">Rouge</option>
+                <option value="green">Vert</option>
+                <option value="yellow">Jaune</option>
+                <option value="white">Blanc</option>
+            </select>
+            <input type="text" class="input_style" id="textColorInput" oninput="inputTextColor()">
+
+            <p class="menu_title">Couleur des liens</p>
+            <select id="linkColorSelect" onchange="selectLinkColor()">
+                <option id="linkColorOption" value=""></option>
+                <option value="black">Noir</option>
+                <option value="blue">Bleu</option>
+                <option value="red">Rouge</option>
+                <option value="green">Vert</option>
+                <option value="yellow">Jaune</option>
+                <option value="white">Blanc</option>
+            </select>
+            <input type="text" class="input_style" id="linkColorInput" oninput="inputLinkColor()">
+
+            <p class="menu_title">Couleur des liens (hover)</p>
+            <select id="linkHoverColorSelect" onchange="selectLinkHoverColor()">
+                <option id="linkHoverColorOption" value=""></option>
+                <option value="black">Noir</option>
+                <option value="blue">Bleu</option>
+                <option value="red">Rouge</option>
+                <option value="green">Vert</option>
+                <option value="yellow">Jaune</option>
+                <option value="white">Blanc</option>
+            </select>
+            
+            <input type="text" class="input_style" id="linkHoverColorInput" oninput="inputLinkHoverColor()">
+            <p class="menu_title">Couleur du fond</p>
+            <select id="backgroundColorSelect" onchange="selectBackgroundColor()">
+                <option id="backgroundColorOption" value=""></option>
+                <option value="black">Noir</option>
+                <option value="blue">Bleu</option>
+                <option value="red">Rouge</option>
+                <option value="green">Vert</option>
+                <option value="yellow">Jaune</option>
+                <option value="white">Blanc</option>
+            </select>
+            <input type="text" class="input_style" id="backgroundColorInput" oninput="inputBackgroundColor()">
+            
+            <p class="menu_title">Couleur des bordures</p>
+            <select id="borderColorSelect" onchange="selectBorderColor()">
+                <option id="borderColorOption" value=""></option>
+                <option value="black">Noir</option>
+                <option value="blue">Bleu</option>
+                <option value="red">Rouge</option>
+                <option value="green">Vert</option>
+                <option value="yellow">Jaune</option>
+                <option value="white">Blanc</option>
+            </select>
+            <input type="text" class="input_style" id="borderColorInput" oninput="inputBorderColor()">
+
+            <p class="menu_title">Couleur des icônes</p>
+            <input type="text" class="input_style" id="iconFilterInput" oninput="inputIconFilter()">
+            <br />
+            <button class="mytowstybutton"onclick="reset()">reset</button>
+            <br />
+            <button class="mytowstybutton" onclick="darkSwitch()" id="themebutton" value="light">Paint it, black</button>
+        </div>
+    </aside>
+    <nav id="mainNav">
         <ul>
 
             {% let homeicon = joinpath( meta[:baseurl], "static/images/picol/home.svg" ) %}
@@ -18,6 +124,7 @@
             {% let searchicon = joinpath( meta[:baseurl], "static/images/picol/search.svg" ); searchpath = joinpath( meta[:baseurl], "recherche" ) %}
                 <li><a href="/{{ searchpath }}"><img src="/{{ searchicon }}"/></a></li>
             {% end %}
+            <li onclick="togglePane()"><img class="custom" src="/static/images/picol/settings.svg"/></li>
         </ul>
     </nav>
 </header>

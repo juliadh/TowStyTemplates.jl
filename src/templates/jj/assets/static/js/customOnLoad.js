@@ -1,101 +1,93 @@
 window.onload = function () {
 
-   //Carrousel
-    // tempus = setInterval(push, 4000);
-//gestion de l'input : écoute
-document.getElementById("Input_size").addEventListener("input", font_size_input);
-document.getElementById("Input_primCol").addEventListener("input", font_primcol_input);
-document.getElementById("Input_secCol").addEventListener("input", font_seccol_input);
-document.getElementById("Input_backCol").addEventListener("input", font_back_input);
-document.getElementById("Input_borderCol").addEventListener("input", border_color_input);
+    // Font family
+    var myfont = localStorage.getItem("fontFamily") || "Victor mono, monospace";
+    document.documentElement.style.setProperty('--font-base', myfont);
+    document.getElementById("fontFamilySelect").value = myfont;
+    document.getElementById("fontFamilyInput").value = myfont;
+    document.getElementById("fontFamilyOption").text = myfont;
 
-//Chargement des variables de personnalisation
-var myfont = localStorage.getItem("font_fam");
-var mysize = localStorage.getItem("font_size");
-var mycolor1 = localStorage.getItem("font_color1");
-var mycolor2 = localStorage.getItem("font_color2");
-var mybackcolor = localStorage.getItem("back_color");
-var mybordercolor = localStorage.getItem("border_color");
+    // Font size
+    var myfontsize = localStorage.getItem("fontSize") || "20px";
+    document.documentElement.style.setProperty('--font-size-base', myfontsize);
+    document.getElementById("fontSizeSelect").value = myfontsize;
+    document.getElementById("fontSizeInput").value = myfontsize;
+    document.getElementById("fontSizeOption").text = myfontsize;
 
+    // text color
+    var mytextcolor = localStorage.getItem("textColor") || "black";
+    document.documentElement.style.setProperty('--color-text', mytextcolor);
+    document.getElementById("textColorSelect").value = mytextcolor;
+    document.getElementById("textColorInput").value = mytextcolor;
+    document.getElementById("textColorOption").text = mytextcolor;
 
+    // Link color
+    var mylinkcolor = localStorage.getItem("linkColor") || "black";
+    document.documentElement.style.setProperty('--color-link', mylinkcolor);
+    document.getElementById("linkColorSelect").value = mylinkcolor;
+    document.getElementById("linkColorInput").value = mylinkcolor;
+    document.getElementById("linkColorOption").text = mylinkcolor;
 
+    // Link color (hover)
+    var mylinkhovercolor = localStorage.getItem("linkHoverColor") || "OrangeRed";
+    document.documentElement.style.setProperty('--color-hover', mylinkhovercolor);
+    document.getElementById("linkHoverColorSelect").value = mylinkhovercolor;
+    document.getElementById("linkHoverColorInput").value = mylinkhovercolor;
+    document.getElementById("linkHoverColorOption").text = mylinkhovercolor;
 
-   if (myfont == null) {
-       document.getElementById("ChoosenFont").text = "Type de police";
-       var font_fam_val = "Victor mono, monospace";
-       document.getElementById("corps").style.fontFamily = font_fam_val;
-       localStorage.setItem("font_fam", font_fam_val);
-   } else {
-       document.getElementById("ChoosenFont").text = myfont;
-       document.getElementById("corps").style.fontFamily = myfont;
- }
+    // Background color
+    var mybackcolor = localStorage.getItem("backgroundColor") || "white";
+    document.documentElement.style.setProperty('--color-background', mybackcolor);
+    document.getElementById("backgroundColorSelect").value = mybackcolor;
+    document.getElementById("backgroundColorInput").value = mybackcolor;
+    document.getElementById("backgroundColorOption").text = mybackcolor;
 
-   if (mysize == null) {
-       document.getElementById("ChoosenSize").text = "Unité CSS";
-       var font_size_val = "20px";
-       document.getElementById("corps").style.fontSize = font_size_val;
-       localStorage.setItem("font_size", font_size_val);
-   } else {
-       document.getElementById("ChoosenSize").text = mysize;
-       document.getElementById("corps").style.fontSize = mysize;
- }
+    // Border color
+    var mybordercolor = localStorage.getItem("borderColor") || "black";
+    document.documentElement.style.setProperty('--color-border', mybordercolor);
+    document.getElementById("borderColorSelect").value = mybordercolor;
+    document.getElementById("borderColorInput").value = mybordercolor;
+    document.getElementById("borderColorOption").text = mybordercolor;
 
-   if (mycolor1 == null) {
-       document.getElementById("ChoosenColorPrime").text = "Couleur CSS";
-       var font_color_prim_val = "black";
-       document.getElementById("corps").style.color = font_color_prim_val;
-       localStorage.setItem("font_color1", font_color_prim_val);
-   } else {
-       document.getElementById("ChoosenColorPrime").text = mycolor1;
-       document.getElementById("corps").style.color = mycolor1;
-   }
+    // Icon color (CSS filter)
+    var myiconcolor = localStorage.getItem("iconFilter") || "invert(0%) sepia(0%) saturate(100%) hue-rotate(0deg) brightness(100%) contrast(100%)";
+    document.documentElement.style.setProperty('--color-icon', myiconcolor);
+    document.getElementById("iconFilterInput").value = myiconcolor;
 
-   if (mycolor2 == null) {
-       document.getElementById("ChoosenColorSecond").text = "Couleur CSS";
-       var font_color_sec_val = "OrangeRed";
-       const style_my_a = document.querySelectorAll('a');
-style_my_a.forEach((a) => {
-  a.style.setProperty('--color-hover', font_color_sec_val);
-});
-       localStorage.setItem("font_color2", font_color_sec_val);
-   } else {
-       document.getElementById("ChoosenColorSecond").text = mycolor2;
-const style_my_a = document.querySelectorAll('a');
-style_my_a.forEach((a) => {
-  a.style.setProperty('--color-hover', mycolor2);
-});
-const ceenbutt = document.getElementsByClassName("myceenbutton");
-Array.from(ceenbutt).forEach((itemElement) => {
-    itemElement.style.setProperty('--color-hover', mycolor2);
-});
-   }
+    // Background image (mvr)
+    var mybgimage = localStorage.getItem("backgroundImage") || "none";
+    document.documentElement.style.setProperty('--background-image', mybgimage);
 
-   if (mybackcolor == null) {
-       document.getElementById("ChoosenBackColor").text = "Couleur CSS";
-       var back_color_val = "white";
-       document.getElementById("corps").style.backgroundColor = back_color_val;
-       localStorage.setItem("back_color", back_color_val);
-   } else {
-       document.getElementById("ChoosenBackColor").text = mybackcolor;
-       document.getElementById("corps").style.backgroundColor = mybackcolor;
-   }
+    
+    document.getElementById("fontFamilyInput").addEventListener("input", inputFontFamily);
+    document.getElementById("fontSizeInput").addEventListener("input", inputFontSize);
+    document.getElementById("textColorInput").addEventListener("input", inputTextColor);
+    document.getElementById("linkHoverColorInput").addEventListener("input", inputLinkHoverColor);
+    document.getElementById("backgroundColorInput").addEventListener("input", inputBackgroundColor);
+    document.getElementById("linkColorInput").addEventListener("input", inputLinkColor);
+    document.getElementById("borderColorInput").addEventListener("input", inputBorderColor);
+    document.getElementById("iconFilterInput").addEventListener("input", inputIconFilter);
 
-   if (mybordercolor == null) {
-       var border_color_val = "black";
-       localStorage.setItem("border_color", border_color_val);
-       document.getElementById("ChoosenBorderColor").text = "Couleur CSS";
-const style_my_ul = document.querySelectorAll('nav ul');
-style_my_ul.forEach((ul) => {
-  ul.style.setProperty('--color-border', border_color_val);
-});
-   } else {
-       const style_my_ul = document.querySelectorAll('nav ul');
-style_my_ul.forEach((ul) => {
-  ul.style.setProperty('--color-border', mybordercolor);
-});
-var mybordercolor = localStorage.getItem("border_color");
-document.getElementById("ChoosenborderColor").text = mybordercolor;
-   }
-   
+    themeList();
+
 }
 
+// Source - https://stackoverflow.com/a
+// Posted by Peter, modified by community. See post 'Timeline' for change history
+// Retrieved 2026-01-05, License - CC BY-SA 3.0
+function onKonamiCode(key, cb) {
+    var input = '';
+    document.addEventListener('keydown', function (e) {
+        input += ("" + e.keyCode);
+        if (input === key) {
+            return cb();
+        }
+        if (!key.indexOf(input)) return;
+        input = ("" + e.keyCode);
+    });
+}
+
+onKonamiCode('3838404065', function () {
+    var bios = document.getElementById("bios");
+    bios.classList.toggle('active'); 
+});

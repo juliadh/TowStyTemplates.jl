@@ -1,0 +1,123 @@
+/*style du menu personnalisation*/
+#customPane .label {
+  font-size: 1rem;
+}
+
+#customPane {
+  font-size: .6em;
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 20;
+  top: 0;
+  right: -100%;
+  width: 70%;
+  max-width: 300px;
+  height: 100vh;
+  background-color: var(--color-background);
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding: 60px 1em;
+  border-width: var(--width-border);
+  border-color: var(--color-border);
+  border-style: var(--type-border);
+
+}
+
+#customPane.active {
+  right: 0;
+}
+
+#bios {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 30;
+  top: 0;
+  right: 0;
+  background-color:#0000aa;
+  color:#ffff55;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+  font-family:monospace;
+  border-color: white;
+  visibility: hidden;
+       border-style: double;
+  border-width:15px;
+}
+
+#bios.active {
+  visibility: visible;
+  width: 100%;
+}
+.biostitle{
+text-align: center;
+}
+#bioscontainer{
+      display:flex;
+  
+}
+#bioscontainer a{
+    color:#ffff55;
+
+}
+#bioparam a {
+color: white;
+font-size: 2em;
+
+}#bioscontainer a:hover {
+ color: white;
+
+}
+#bioparam a:hover {
+  color:#ffff55;
+
+}
+#bioparam a:hover {
+  color:#ffff55;
+
+}
+.arrow{
+font-size: 2em;
+
+}
+.arrow::marker {
+  content: "➤";
+}
+
+
+#customPane a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+
+#customPane a:hover {
+  color: #f1f1f1;
+}
+
+#customPane .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+.menu_title{
+  color : var(--color-text-side);
+  
+}
+
+@media screen and (max-height: 450px) {
+  #customPane {
+    padding-top: 15px;
+  }
+
+  #customPane a {
+    font-size: 18px;
+  }
+}

@@ -4,6 +4,9 @@
         {% let csspath = joinpath( meta[:baseurl], "static/css/main.css" ) %}
             <link rel="stylesheet" href="/{{ csspath }}">
         {% end %}
+        {% let customcss = joinpath( meta[:baseurl], "static/css/custom.css" ) %}
+            <link rel="stylesheet" href="/{{ customcss }}">
+        {% end %}
         <meta charset="utf-8" />
         <script src="https://unpkg.com/lunr/lunr.js"></script>
         <script src="https://unpkg.com/lunr-languages/lunr.stemmer.support.js"></script>

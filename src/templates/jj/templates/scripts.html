@@ -1,1 +1,19 @@
 <!-- no script -->
+{% let themesPath = joinpath( meta[:baseurl], "static/js/themes.js" ) %}
+    <script src="/{{themesPath}}">/**/</script>
+{% end %}
+{% let customPath = joinpath( meta[:baseurl], "static/js/custom.js" ) %}
+    <script src="/{{customPath}}">/**/</script>
+{% end %}
+{% let customOnLoadPath = joinpath( meta[:baseurl], "static/js/customOnLoad.js" ) %}
+    <script src="/{{customOnLoadPath}}">/**/</script>
+{% end %}
+{% let toggleMenuPath = joinpath( meta[:baseurl], "static/js/menu.js" ) %}
+    <script src="/{{toggleMenuPath}}">/**/</script>
+{% end %}
+{% let gotostylo = joinpath( meta[:baseurl], "static/js/gotostylo.js" ) %}
+    <script src="/{{gotostylo}}">/**/</script>
+{% end %}
+{% let listFilter = joinpath( meta[:baseurl], "static/js/listFilter.js" ) %}
+    <script src="/{{listFilter}}">/**/</script>
+{% end %}
