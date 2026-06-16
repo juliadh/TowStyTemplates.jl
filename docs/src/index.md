@@ -17,6 +17,8 @@ julia> newproject("myProject", template="jj")
 
 ```@eval
 using TowStyTemplates
+using Latexify
 
-templates()
+df = templates()
+mdtable(df, latex=false)
 ```

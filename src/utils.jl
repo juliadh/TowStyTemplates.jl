@@ -91,7 +91,7 @@ This function lists available templates.
 function templates()
   templates = TEMPLATES_LIST |> DataFrame
 
-  return println(templates)
+  return templates
 end
 
 """

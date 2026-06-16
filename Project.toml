@@ -1,6 +1,6 @@
 name = "TowStyTemplates"
 uuid = "26c3e8b2-b2ea-4c13-8a2d-a4d529bbbc89"
-version = "0.1.4"
+version = "0.1.5"
 authors = ["Josselin Morvan <morvan.josselin@gmail.com>"]
 
 [deps]
