@@ -22,3 +22,10 @@ using Latexify
 df = templates()
 mdtable(df, latex=false)
 ```
+
+## API
+
+```@autodocs
+Modules = [TowStyTemplates]
+Order = [:function]
+```
