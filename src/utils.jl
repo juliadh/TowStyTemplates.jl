@@ -89,9 +89,9 @@ end
 This function lists available templates.
 """
 function templates()
-  for template in TEMPLATES_LIST
-    println(template)
-  end
+  templates = TEMPLATES_LIST |> DataFrame
+
+  return println(templates)
 end
 
 """
