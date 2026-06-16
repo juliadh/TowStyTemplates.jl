@@ -16,5 +16,7 @@ julia> newproject("myProject", template="jj")
 ## List of templates
 
 ```@eval
+using TowStyTemplates
+
 templates()
 ```
