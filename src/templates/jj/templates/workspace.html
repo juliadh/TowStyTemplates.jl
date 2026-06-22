@@ -1,20 +1,20 @@
 <!DOCTYPE html>
 <html>
     <head>
-        {% let csspath = joinpath( meta[:baseurl], "static/css/main.css" ) %}
-            <link rel="stylesheet" href="/{{ csspath }}">
+        {% let csspath = joinpath( meta[:mountpath], "static/css/main.css" ) %}
+            <link rel="stylesheet" href="{{ csspath }}">
         {% end %}
         <meta charset="utf-8" />
     </head>
     <body>
         <header style="margin: auto; padding: 2em;">
             <nav>
-                <a href="/">Retour à l'accueil</a>
+                <a href="{{ meta[:mountpath] }}">Retour à l'accueil</a>
             </nav>
         </header>
         <main style="width: 800px; margin: auto; padding: 2em;">
-            {% let updatepath = joinpath( meta[:baseurl], "workspace/update" ) %}
-                <form action="/{{ updatepath }}">
+            {% let updatepath = joinpath( meta[:mountpath], "workspace/update" ) %}
+                <form action="{{ updatepath }}">
                     <label for="styloapikey">Clé API Stylo</label><br>
                     <input style="width: 100%;" type="text" id="styloapikey" name="styloapikey"><br>
                     <label for="workspaceid">Identifiant du workspace</label><br>

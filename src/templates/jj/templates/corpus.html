@@ -17,8 +17,8 @@
                     {% let articles = content[:articles] %}
                         <ul>
                             {% for article in articles %}
-                                {% let fullpath = joinpath(meta[:baseurl], article[:path]) %}
-                                    <li><a href="/{{ fullpath }}">{{ article[:title] |> safe }}</a></li>
+                                {% let fullpath = joinpath(meta[:mountpath], article[:path]) %}
+                                    <li><a href="{{ fullpath }}">{{ article[:title] |> safe }}</a></li>
                                 {% end %}
                             {% end %}
                         </ul>

@@ -1,19 +1,19 @@
 <!-- no script -->
-{% let themesPath = joinpath( meta[:baseurl], "static/js/themes.js" ) %}
-    <script src="/{{themesPath}}">/**/</script>
+{% let themesPath = joinpath( meta[:mountpath], "static/js/themes.js" ) %}
+    <script src="{{ themesPath }}">/**/</script>
 {% end %}
-{% let customPath = joinpath( meta[:baseurl], "static/js/custom.js" ) %}
-    <script src="/{{customPath}}">/**/</script>
+{% let customPath = joinpath( meta[:mountpath], "static/js/custom.js" ) %}
+    <script src="{{ customPath }}">/**/</script>
 {% end %}
-{% let customOnLoadPath = joinpath( meta[:baseurl], "static/js/customOnLoad.js" ) %}
-    <script src="/{{customOnLoadPath}}">/**/</script>
+{% let customOnLoadPath = joinpath( meta[:mountpath], "static/js/customOnLoad.js" ) %}
+    <script src="{{ customOnLoadPath }}">/**/</script>
 {% end %}
-{% let toggleMenuPath = joinpath( meta[:baseurl], "static/js/menu.js" ) %}
-    <script src="/{{toggleMenuPath}}">/**/</script>
+{% let toggleMenuPath = joinpath( meta[:mountpath], "static/js/menu.js" ) %}
+    <script src="{{ toggleMenuPath }}">/**/</script>
 {% end %}
-{% let gotostylo = joinpath( meta[:baseurl], "static/js/gotostylo.js" ) %}
-    <script src="/{{gotostylo}}">/**/</script>
+{% let gotostylo = joinpath( meta[:mountpath], "static/js/gotostylo.js" ) %}
+    <script src="{{ gotostylo }}">/**/</script>
 {% end %}
-{% let listFilter = joinpath( meta[:baseurl], "static/js/listFilter.js" ) %}
-    <script src="/{{listFilter}}">/**/</script>
+{% let listFilter = joinpath( meta[:mountpath], "static/js/listFilter.js" ) %}
+    <script src="{{ listFilter }}">/**/</script>
 {% end %}

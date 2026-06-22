@@ -1,9 +1,9 @@
 let documents = [];
 let idx;
 
-// Get baseurl from template (injected as global variable)
-const baseurl = window.BASEURL || "";
-const urlPrefix = baseurl ? "/" + baseurl : "";
+// Get mountpath from template (injected as global variable)
+const mountpath = window.MOUNTPATH || "/";
+const urlPrefix = mountpath && mountpath !== "/" ? mountpath : "";
 
 fetch(urlPrefix + '/articles.json')
     .then(response => response.json())
@@ -44,7 +44,7 @@ fetch(urlPrefix + '/articles.json')
                     return;
                 }
                 const div = document.createElement('div');
-                let path = urlPrefix + "/" + doc.path;
+                let path = doc.path;
                 div.classList.add('result');
                 div.innerHTML = `<strong><a href="${path}">${doc.title || 'Sans titre'}</a></strong>`;
                 resultsDiv.appendChild(div);

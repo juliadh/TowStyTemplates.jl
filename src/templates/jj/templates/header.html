@@ -72,7 +72,7 @@
                 <option value="yellow">Jaune</option>
                 <option value="white">Blanc</option>
             </select>
-            
+
             <input type="text" class="input_style" id="linkHoverColorInput" oninput="inputLinkHoverColor()">
             <p class="menu_title">Couleur du fond</p>
             <select id="backgroundColorSelect" onchange="selectBackgroundColor()">
@@ -85,7 +85,7 @@
                 <option value="white">Blanc</option>
             </select>
             <input type="text" class="input_style" id="backgroundColorInput" oninput="inputBackgroundColor()">
-            
+
             <p class="menu_title">Couleur des bordures</p>
             <select id="borderColorSelect" onchange="selectBorderColor()">
                 <option id="borderColorOption" value=""></option>
@@ -109,22 +109,24 @@
     <nav id="mainNav">
         <ul>
 
-            {% let homeicon = joinpath( meta[:baseurl], "static/images/picol/home.svg" ) %}
-                <li><a href="/{{ meta[:baseurl] }}"><img src="/{{ homeicon }}"/></a></li>
+            {% let homeicon = joinpath( meta[:mountpath], "static/images/picol/home.svg" ) %}
+                <li><a href="{{ meta[:mountpath] }}"><img src="{{ homeicon }}"/></a></li>
             {% end %}
 
             {% let nav = meta[:nav] %}
                 {% for entry in nav %}
-                {% let fullpath = joinpath(meta[:baseurl], entry[:path]) %}
-                    <li><a href="/{{ fullpath }}">{{ entry[:name] }}</a></li>
-                {% end %}
+                    {% let fullpath = joinpath(meta[:mountpath], entry[:path]) %}
+                        <li><a href="{{ fullpath }}">{{ entry[:name] }}</a></li>
+                    {% end %}
                 {% end %}
             {% end %}
 
-            {% let searchicon = joinpath( meta[:baseurl], "static/images/picol/search.svg" ); searchpath = joinpath( meta[:baseurl], "recherche" ) %}
-                <li><a href="/{{ searchpath }}"><img src="/{{ searchicon }}"/></a></li>
+            {% let searchicon = joinpath( meta[:mountpath], "static/images/picol/search.svg" ); searchpath = joinpath( meta[:mountpath], "recherche" ) %}
+                <li><a href="{{ searchpath }}"><img src="{{ searchicon }}"/></a></li>
             {% end %}
-            <li onclick="togglePane()"><img class="custom" src="/static/images/picol/settings.svg"/></li>
+            {% let settingsicon = joinpath( meta[:mountpath], "static/images/picol/settings.svg" ) %}
+                <li onclick="togglePane()"><img class="custom" src="{{ settingsicon }}"/></li>
+            {% end %}
         </ul>
     </nav>
 </header>

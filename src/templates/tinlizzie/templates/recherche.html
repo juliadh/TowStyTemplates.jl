@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="fr">
     <head>
-        {% let csspath = joinpath( meta[:baseurl], "static/css/main.css" ) %}
-            <link rel="stylesheet" href="/{{ csspath }}">
+        {% let csspath = joinpath( meta[:mountpath], "static/css/main.css" ) %}
+            <link rel="stylesheet" href="{{ csspath }}">
         {% end %}
         <meta charset="utf-8" />
         <script src="https://unpkg.com/lunr/lunr.js"></script>
@@ -20,10 +20,10 @@
         {% include "templates/scripts.html" %}
         <script>
             // for lunrconf
-            window.BASEURL = "{{ meta[:baseurl] }}";
+            window.MOUNTPATH = "{{ meta[:mountpath] }}";
         </script>
-        {% let lunrconf = joinpath( meta[:baseurl], "static/js/lunrconf.js" ) %}
-            <script src="/{{ lunrconf }}"></script>
+        {% let lunrconf = joinpath( meta[:mountpath], "static/js/lunrconf.js" ) %}
+            <script src="{{ lunrconf }}"></script>
         {% end %}
     </body>
 </html>

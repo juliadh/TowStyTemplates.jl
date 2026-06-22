@@ -1,7 +1,7 @@
 <head>
     <title>{{ meta[:workspacename] }}</title>
-    {% let csspath = joinpath( meta[:baseurl], "static/css/main.css" ) %}
-        <link rel="stylesheet" href="/{{ csspath }}">
+    {% let csspath = joinpath( meta[:mountpath], "static/css/main.css" ) %}
+        <link rel="stylesheet" href="{{ csspath }}">
     {% end %}
     <meta charset="utf-8" />
 </head>
