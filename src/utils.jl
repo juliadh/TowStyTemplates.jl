@@ -20,7 +20,7 @@ newproject("MyNewWebsite", template="jj")
 function newproject(dir::String="project"; template::String="jj", changedir::Bool=true,  verbose::Bool=true)
 
   template = lowercase(template)
-  template ∈ TEMPLATES_LIST || throw( ArgumentError("Template $template doesn't exist.") )
+  any(t -> t[:name] == template, TEMPLATES_LIST) || throw( ArgumentError("Template $template doesn't exist.") )
 
   # create the top-directory
   if dir == "."
