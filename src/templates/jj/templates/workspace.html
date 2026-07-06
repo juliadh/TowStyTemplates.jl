@@ -14,7 +14,7 @@
         </header>
         <main style="width: 800px; margin: auto; padding: 2em;">
             {% let updatepath = joinpath( meta[:mountpath], "workspace/update" ) %}
-                <form action="{{ updatepath }}">
+                <form action="{{ updatepath }}" method="post">
                     <label for="styloapikey">Clé API Stylo</label><br>
                     <input style="width: 100%;" type="text" id="styloapikey" name="styloapikey"><br>
                     <label for="workspaceid">Identifiant du workspace</label><br>
