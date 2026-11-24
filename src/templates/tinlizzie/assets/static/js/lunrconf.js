@@ -17,7 +17,7 @@ fetch(urlPrefix + '/articles.json')
 
         idx = lunr(function () {
             this.use(lunr.fr);
-            this.ref('_id');
+            this.ref('id');
             this.field('title');
             this.field('md');
 
@@ -38,7 +38,7 @@ fetch(urlPrefix + '/articles.json')
             }
 
             results.forEach(function (result) {
-                const doc = documents.find(d => d._id === result.ref);
+                const doc = documents.find(d => d.id === result.ref);
                 if (!doc) {
                     console.error("Document non trouvé pour ref:", result.ref);
                     return;
